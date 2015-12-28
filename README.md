@@ -9,7 +9,7 @@ First install [Vagrant] and [Virtual Box].
 Then, run the following to create a new PostgreSQL app dev virtual machine:
 
 	# Clone it locally:
-    $ git clone https://github.com/jackdb/pg-app-dev-vm myapp
+    $ git clone https://github.com/robles/vagrant-postgres.git myapp
 
     # Enter the cloned directory:
     $ cd myapp
@@ -25,8 +25,14 @@ Then, run the following to create a new PostgreSQL app dev virtual machine:
     # Start up the virtual machine:
     $ vagrant up
 
-    # Stop the virtual machine:
+    # shut down the virtual machine:
     $ vagrant halt
+
+    # remove the virtual machine:
+    $ vagrant destroy
+
+    #suspend the virtual machine:
+    $ vagrant suspend
 
 ### What does it do?
 
@@ -51,7 +57,7 @@ Once it has started up it will print out how to access the database on the virtu
     psql access to app database user via VM:
       vagrant ssh
       sudo su - postgres
-      PGUSER=myapp PGPASSWORD=dbpass psql -h localhost myapp
+      psql myapp
 
     Env variable for application development:
       DATABASE_URL=postgresql://myapp:dbpass@localhost:15432/myapp
@@ -70,4 +76,4 @@ Mainly because it's simple and anybody with a basic knowledge of shell scripting
 This is released under the MIT license. See the file [LICENSE](LICENSE).
 
 [Virtual Box]: https://www.virtualbox.org/
-Vagrant]: http://www.vagrantup.com/
+[Vagrant]: http://www.vagrantup.com/
